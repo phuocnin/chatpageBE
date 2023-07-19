@@ -1,9 +1,3 @@
-👉 npm install --save body-parser@1.19.0 dotenv@8.2.0 ejs@3.1.5 express@4.18.2
+=> npm install http-errors :  Một trong những điểm mạnh của gói này là khả năng tạo các lỗi HTTP với mã trạng thái và thông báo lỗi được xác định trước, giúp giảm bớt việc phải viết mã lặp lại trong mã ứng dụng.
 
-👉 npm install --save-dev @babel/core@7.12.10 @babel/preset-env@7.12.10 
-@babel/node@7.12.10 nodemon@2.0.7
- 
-=> config src
-=> create gitignore
-=> config babel
-=> create a basic express app
+

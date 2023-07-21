@@ -2,14 +2,23 @@ import express from "express";
 import dotenv from "dotenv";
 import createHttpError from "http-errors";
 import routers from "./routers/index";
-import bodyParser from "body-parser";
+import mongoose from "mongoose";
+
 //config dotenv
 dotenv.config()
+// connect mongodb
+const { DATABASE_URL } = process.env;
 
+mongoose.connect(DATABASE_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}).then(() => {
+    console.log("Connected to Mongodb.");
+});
 const app = express()
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
     throw createHttpError.RequestTimeout("this route has an error");

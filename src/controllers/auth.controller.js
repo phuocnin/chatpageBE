@@ -1,18 +1,16 @@
-const register = (req, res, next) => {
+import authService from "../services/auth.service.js"
+
+const register = async (req, res, next) => {
     try {
-        res.send(req.body)
+        const newUser = await authService.createUser(req.body)
+        res.json(newUser);
+
     } catch (err) {
         next(err);
     }
 }
 
-// const register = async (req, res, next) => {
-//     try {
-//         res.send(req.body);
-//     } catch (error) {
-//         next(error);
-//     }
-// };
+
 module.exports = {
     register,
 }

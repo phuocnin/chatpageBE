@@ -19,16 +19,7 @@ const app = express()
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-app.get("/", (req, res) => {
-    throw createHttpError.RequestTimeout("this route has an error");
-});
-app.post("/test", (req, res) => {
-    throw createHttpError.BadRequest("this route has an error");
-});
-
-app.use('/api/v1/', routers)
-
+app.use('/api/v1/', routers);
 app.use(async (req, res, next) => {
     next(createHttpError.NotFound("This route does not exist."));
 });

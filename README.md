@@ -1,11 +1,5 @@
-=> setup route, contrller
+=> tạo user model
 
-=> npm install trim-request: 
+=> auth service: kiểm tra data -> lưu vào db
 
-trimRequest.all cắt nội dung, params và đối tượng truy vấn
-
-trimRequest.body Chỉ cắt tỉa đối tượng cơ thể
-
-trimRequest.param Cắt đối tượng params
-
-trimRequest.query Cắt tỉa đối tượng chuỗi truy vấn
+=> npm install validator: Thư viện này giúp kiểm tra và xử lý các giá trị đầu vào. vd email, password....(chỉ áp dụng cho string)

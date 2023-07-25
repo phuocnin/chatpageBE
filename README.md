@@ -1,5 +1,1 @@
-npm install jsonwebtoken =>  JWT thường được sử dụng trong cơ chế xác thực và phân quyền trong ứng dụng web và dịch vụ web
-
-access_token có thời gian hết hạn ngắn hơn và được sử dụng để xác thực và truy cập các tài nguyên bảo mật. Khi người dùng gửi yêu cầu đến máy chủ, access_token sẽ được kèm theo trong header của yêu cầu hoặc dưới dạng thông tin truy vấn (query parameter). Máy chủ sẽ kiểm tra tính hợp lệ của access_token và quyết định xem người dùng có quyền truy cập tài nguyên được yêu cầu hay không. Thời gian hết hạn ngắn của access_token giúp đảm bảo rằng quyền truy cập của người dùng chỉ có hiệu lực trong một khoảng thời gian ngắn và không bị lâu dài.
-
-refresh_token có thời hạn lâu hơn và được lưu trữ trong cookie hoặc bộ nhớ của trình duyệt. Khi access_token hết hạn, người dùng vẫn có thể sử dụng refresh_token để gửi yêu cầu mới đến máy chủ và nhận access_token mới mà không cần đăng nhập lại. Quá trình này được gọi là cấp lại (refresh) access_token.
+login, logout

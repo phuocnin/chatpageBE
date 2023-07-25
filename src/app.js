@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import createHttpError from "http-errors";
 import routers from "./routers/index";
 import mongoose from "mongoose";
+import cookieParser from "cookie-parser";
 
 //config dotenv
 dotenv.config()
@@ -19,6 +20,8 @@ const app = express()
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+//enable cookie parser
+app.use(cookieParser());
 app.use('/api/v1/', routers);
 app.use(async (req, res, next) => {
     next(createHttpError.NotFound("This route does not exist."));

@@ -1,6 +1,3 @@
-cấp lại access token thông qua refresh token: lấy refresh token từ cookie -> giải mã -> user id -> user -> access token
-
-npm install cookie-parser
-
-cấu hình cookie-parser
--> req.cookies.refreshtoken để lấy refreshtoken từ cookie
+ Middleware
+ 
+ Nó cho phép bạn thực hiện các hoạt động như kiểm tra, xác thực, ghi log, xử lý lỗi, nén dữ liệu, hay thậm chí chỉnh sửa yêu cầu trước khi chúng được chuyển đến server hoặc các thành phần xử lý chính khác.

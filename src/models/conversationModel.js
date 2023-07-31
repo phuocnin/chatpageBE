@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+const { ObjectId } = mongoose.Schema.Types;
 const conversationSchema = mongoose.Schema({
     name: {
         type: String,
@@ -15,7 +15,7 @@ const conversationSchema = mongoose.Schema({
         type: ObjectId,
         ref: "UserModel"
     }],
-    laterMessage: {
+    latestMessage: {
         type: ObjectId,
         ref: "MessageModel"
     },

@@ -2,7 +2,7 @@ import conversationService from "../services/conversation.service.js"
 import createHttpError from "http-errors"
 import userService from "../services/user.service.js"
 
-const create_open_convarsation = async (req, res, next) => {
+const create_open_conversation = async (req, res, next) => {
     try {
         const sender_id = req.user.userId;
         const { receiver_id } = req.body;
@@ -35,7 +35,16 @@ const create_open_convarsation = async (req, res, next) => {
         next(error)
     }
 }
-
+const getconversation = async (req, res, next) => {
+    try {
+        const sender_id = req.user.userId;
+        const conversation = await conversationService.getconversation(sender_id)
+        res.status(200).json(conversation)
+    } catch (error) {
+        next(error)
+    }
+}
 module.exports = {
-    create_open_convarsation,
+    create_open_conversation,
+    getconversation
 }

@@ -5,6 +5,7 @@ import conversationsControllers from '../controllers/conversation.controller.js'
 
 const router = express.Router();
 
-router.route('/').post(trimRequest.all, authMiddlewares, conversationsControllers.create_open_convarsation)
+router.route('/').post(trimRequest.all, authMiddlewares, conversationsControllers.create_open_conversation)
+router.route('/getconversation').get(trimRequest.all, authMiddlewares, conversationsControllers.getconversation)
 
 export default router;

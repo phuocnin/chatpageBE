@@ -39,8 +39,19 @@ const populateConversation = async (id, fieldToPopulate, fieldsToRemove) => {
     return populatedConvo;
 };
 
+const getconversation = async (sender_id) => {
+    const conversation = await ConversationModel
+        .find({ users: { $elemMatch: { $eq: sender_id } } })
+        .populate("users", "-password")
+        .populate("admin", "-password")
+        .populate("latestMessage")
+        .sort({ updatedAt: -1 }) //sắp xếp theo trường updatedAt giảm dần  
+
+    return conversation
+}
 module.exports = {
     doesConversation,
     createConversation,
     populateConversation,
+    getconversation,
 }

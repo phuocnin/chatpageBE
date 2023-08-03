@@ -49,9 +49,18 @@ const getconversation = async (sender_id) => {
 
     return conversation
 }
+
+const updateLatestMessage = async (convo_id, message) => {
+    const updateLMSG = await ConversationModel.findByIdAndUpdate(convo_id, { latestMessage: message });
+    if (!updateLMSG)
+        throw createHttpError.BadRequest("Oops...Something went wrong !");
+
+    return updateLMSG;
+}
 module.exports = {
     doesConversation,
     createConversation,
     populateConversation,
     getconversation,
+    updateLatestMessage
 }

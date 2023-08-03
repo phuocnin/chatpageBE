@@ -1,3 +1,4 @@
 import UserModel from "./userModel";
 import ConversationModel from "./conversationModel";
-export { UserModel, ConversationModel }
+import MessageModel from "./messageModel";
+export { UserModel, ConversationModel, MessageModel }

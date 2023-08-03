@@ -15,7 +15,7 @@ const create_open_conversation = async (req, res, next) => {
         if (conversation) {
             res.json(conversation)
         } else {
-            console.log(receiver_id, sender_id);
+            //            console.log(receiver_id, sender_id);
             let receiver_user = await userService.findUser(receiver_id);
             let convoData = {
                 name: receiver_user.name,

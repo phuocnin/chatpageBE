@@ -14,7 +14,16 @@ const populateMessage = async (message_id) => {
         throw createHttpError.BadRequest("Oops...Something went wrong !");
     return populateMessage
 }
+const getMessage = async (convo_id) => {
+    const getMessage = await MessageModel.find({ conversation: convo_id })
+        .populate('sender', '-password')
+        .populate('conversation')
+        .sort({ updatedAt: -1 })
+
+    return getMessage
+}
 module.exports = {
     createMessage,
-    populateMessage
+    populateMessage,
+    getMessage
 }

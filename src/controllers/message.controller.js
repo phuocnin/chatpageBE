@@ -27,7 +27,12 @@ const sendMessage = async (req, res, next) => {
 
 const getMessage = async (req, res, next) => {
     try {
-
+        const convo_id = req.params.convo_id;
+        if (!convo_id) {
+            throw createHttpError.BadGateway("không có người dùng")
+        }
+        const message = await messageService.getMessage(convo_id)
+        res.status(200).json(message)
     } catch (error) {
         next(error)
     }

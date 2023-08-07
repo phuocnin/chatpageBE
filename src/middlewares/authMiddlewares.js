@@ -10,7 +10,6 @@ export default function (req, res, next) {
         if (err) {
             return next(createHttpError.Unauthorized());
         }
-        console.log(payload);
         req.user = payload;
         next();
     });

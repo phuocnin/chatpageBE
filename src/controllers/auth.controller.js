@@ -16,7 +16,14 @@ const register = async (req, res, next) => {
         })
         res.json({
             message: "register success.",
-            access_token, newUser
+            user: {
+                _id: newUser._id,
+                name: newUser.name,
+                email: newUser.email,
+                picture: newUser.picture,
+                status: newUser.status,
+                token: access_token,
+            },
         });
 
     } catch (err) {
@@ -36,7 +43,14 @@ const login = async (req, res, next) => {
         })
         res.json({
             message: "login success.",
-            access_token, user
+            user: {
+                _id: user._id,
+                name: user.name,
+                email: user.email,
+                picture: user.picture,
+                status: user.status,
+                token: access_token,
+            },
         });
     } catch (err) {
         next(err)
@@ -57,7 +71,14 @@ const refreshToken = async (req, res, next) => {
         const user = await userService.findUser(decode.userId)
         const access_token = await generateToken({ userId: user._id }, "1d", process.env.ACCESS_SECRETKEY_TOKEN)
         res.json({
-            access_token, user
+            user: {
+                _id: user._id,
+                name: user.name,
+                email: user.email,
+                picture: user.picture,
+                status: user.status,
+                token: access_token,
+            },
         });
     } catch (err) {
         next(err)

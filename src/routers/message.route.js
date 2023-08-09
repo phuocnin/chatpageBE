@@ -6,5 +6,5 @@ const router = express.Router()
 
 router.route('/').post(trimRequest.all, authMiddlewares, messageController.sendMessage)
 router.route('/:convo_id').get(trimRequest.all, authMiddlewares, messageController.getMessage)
-
+router.route('/:message_id').delete(authMiddlewares, messageController.deleteMessage)
 export default router

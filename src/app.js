@@ -4,7 +4,6 @@ import createHttpError from "http-errors";
 import routers from "./routers/index";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
-
 //config dotenv
 dotenv.config()
 // connect mongodb
@@ -17,7 +16,6 @@ mongoose.connect(DATABASE_URL, {
     console.log("Connected to Mongodb.");
 });
 const app = express()
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //enable cookie parser
@@ -37,4 +35,7 @@ app.use(async (err, req, res, next) => {
         },
     });
 });
+
+
+
 export default app;
